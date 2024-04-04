@@ -25,6 +25,7 @@ main {
     grid-template-columns: repeat(auto-fit, 150px);
     gap: 16px;
     place-content: start;
+    padding: 80px 15px 50px 15px;
 }
 
 .loading-view {

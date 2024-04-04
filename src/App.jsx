@@ -31,20 +31,25 @@ function MainPage() {
 
     // console.log(searchInput)
 
-    return AllPokemon !== null ? (
+    return (
         <main>
             <Header onFilterChange={handleFilterChange}
                     onSearch={handleSearch}
                     searchInput={searchInput}
             />
-            AllPokemon !== null ? 
-            <PokemonList allPkmn={AllPokemon}
-                        filter={filter} 
-                        searchInput={searchInput}
+            {
+                AllPokemon !== null ? 
+                <PokemonList allPkmn={AllPokemon}
+                            filter={filter} 
+                            searchInput={searchInput}
+                /> 
+                : 
+                <div className='loading-view'><h1>Loading...</h1></div>        
+            }
 
-            />
+            
         </main>
-    ) : <div className='loading-view'><h1>Loading...</h1></div>
+    )
 }
 
 

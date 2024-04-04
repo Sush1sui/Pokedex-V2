@@ -25,13 +25,25 @@ export default function PokemonList(props) {
 
     useEffect(() => {
         if (pokemonData.length > 0) {
-            const filtered = pokemonData.filter(pokemon => {
+            let filtered = pokemonData.filter(pokemon => {
                 return pokemon.name.startsWith(props.searchInput) || pokemon.id.toString().startsWith(props.searchInput);
             });
+            
+            if(props.filter === 'asc-num') {
+                filtered = [...filtered].sort((a, b) => a.id - b.id)
+            } else if (props.filter === 'desc-num') {
+                filtered = [...filtered].sort((a, b) => b.id - a.id)
+            } else if (props.filter === 'asc-name') {
+                filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name))
+            } else if (props.filter === 'desc-name') {
+                filtered = [...filtered].sort((a, b) => b.name.localeCompare(a.name))
+            }
             setFilteredData(filtered);
         }
-    }, [props.searchInput, pokemonData]);
+    }, [props.searchInput, pokemonData, props.filter]);
 
+    console.log(filteredData)
+    
     return (
         <section className='pokemon--cards-wrapper'>
             {
