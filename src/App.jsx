@@ -39,7 +39,7 @@ function MainPage() {
 
         setTimeout(() => {
             event.target.style.display = 'none';
-        }, 5000);
+        }, 2000);
     };
 
     // console.log(searchInput)
@@ -58,7 +58,7 @@ function MainPage() {
                     searchInput={searchInput}
             />
             {
-                AllPokemon !== null ? 
+                AllPokemon !== null? 
                 <PokemonList allPkmn={AllPokemon}
                             filter={filter} 
                             searchInput={searchInput}

@@ -168,12 +168,12 @@ header {
 }
 
 .remove-coverPage-animation {
-    animation: removeCoverPage 1s ease-in-out forwards;
+    animation: removeCoverPage 1.5s ease-in-out forwards;
     transition: 0.5s;
 }
 
 @keyframes removeCoverPage{
-    0%{
+    20%{
         right: 0;
     }
     100% {
