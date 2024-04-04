@@ -27,6 +27,12 @@ main {
     place-content: start;
 }
 
+.loading-view {
+    position: fixed;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .pokemon--card {
     border: 1px solid gray;
     height: 150px;

@@ -42,7 +42,7 @@ function MainPage() {
                         filter={filter} 
                         searchInput={searchInput}
 
-            /> : <div>Loading...</div>}
+            /> : <div className='loading-view'>Loading...</div>}
             <footer>
                 <h4>Sush1sui</h4>
             </footer>
