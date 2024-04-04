@@ -122,7 +122,7 @@ header {
     outline: none;
 }
 
-footer{
+/* footer{
     background-color: black;
     color: white;
     position: absolute;
@@ -131,7 +131,7 @@ footer{
     right: 0;
     text-align: center;
     height: 5%;
-}
+} */
 
 @media (max-width: 760px) {
     header {

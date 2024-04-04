@@ -11,7 +11,7 @@ export default function PokemonList(props) {
                 const newData = await Promise.all(
                     props.allPkmn.map(async (pokemon) => {
                         const res = await fetch(pokemon.url);
-                        return res.json();
+                        return await res.json();
                     })
                 );
                 setPokemonData(newData);

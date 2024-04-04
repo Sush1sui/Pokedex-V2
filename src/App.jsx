@@ -43,9 +43,6 @@ function MainPage() {
                         searchInput={searchInput}
 
             />
-            <footer>
-                <h4>Sush1sui</h4>
-            </footer>
         </main>
     ) : <div className='loading-view'><h1>Loading...</h1></div>
 }
