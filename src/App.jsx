@@ -7,6 +7,8 @@ function MainPage() {
     const [AllPokemon, setAllPokemon] = useState(null)
     const [filter, setFilter] = useState('asc-num')
     const [searchInput, setSearchInput] = useState('')
+    const [isCoverPageVisible, setCoverPageVisible] = useState(true)
+    const [animationTimeouts, setAnimationTimeouts] = useState([])
 
     useEffect(() => {
         async function fetchAllPkmn() {
@@ -29,30 +31,39 @@ function MainPage() {
         setSearchInput(search)
     }
 
-    const animateOpen = (event) => {
+    const animateOpen = () => {
         const bars = document.querySelectorAll('.coverPageBar');
+        const timeouts = [];
+
         bars.forEach((bar, index) => {
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
                 bar.classList.add('remove-coverPage-animation');
             }, index * 200); // 0.5-second interval between each bar
+            timeouts.push(timeoutId);
         });
 
-        setTimeout(() => {
-            event.target.style.display = 'none';
+        // Hide cover page after animation
+        const hideTimeoutId = setTimeout(() => {
+            setCoverPageVisible(false);
         }, 2000);
+
+        setAnimationTimeouts([...timeouts, hideTimeoutId]);
     };
 
     // console.log(searchInput)
 
     return (
         <main>
-            <div className='coverPage' onClick={animateOpen}>
-                <div className='coverPageBar coverPageBar-1'></div>
-                <div className='coverPageBar coverPageBar-2'></div>
-                <div className='coverPageBar coverPageBar-3'>CLICK TO OPEN</div>
-                <div className='coverPageBar coverPageBar-4'></div>
-                <div className='coverPageBar coverPageBar-5'></div>
-            </div>
+            {
+                isCoverPageVisible &&
+                <div className='coverPage' onClick={animateOpen}>
+                    <div className='coverPageBar coverPageBar-1'></div>
+                    <div className='coverPageBar coverPageBar-2'></div>
+                    <div className='coverPageBar coverPageBar-3'>CLICK TO OPEN</div>
+                    <div className='coverPageBar coverPageBar-4'></div>
+                    <div className='coverPageBar coverPageBar-5'></div>
+                </div>
+            }
             <Header onFilterChange={handleFilterChange}
                     onSearch={handleSearch}
                     searchInput={searchInput}
