@@ -123,6 +123,23 @@ header {
     outline: none;
 }
 
+.coverPage{
+    z-index: 10;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background-color: rgb(189, 99, 104);
+    color: white;
+    font-family: "Press Start 2P", system-ui;
+    text-shadow: 0 0 10px black;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    font-size: xx-large;
+}
+
 /* footer{
     background-color: black;
     color: white;

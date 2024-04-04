@@ -29,10 +29,18 @@ function MainPage() {
         setSearchInput(search)
     }
 
+    function animateOpen(event) {
+        event.target.style.display = 'none'
+    }
+
     // console.log(searchInput)
 
     return (
         <main>
+            <div className='coverPage'
+                onClick={animateOpen}>
+                    CLICK TO OPEN
+            </div>
             <Header onFilterChange={handleFilterChange}
                     onSearch={handleSearch}
                     searchInput={searchInput}
