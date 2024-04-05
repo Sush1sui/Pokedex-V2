@@ -32,6 +32,49 @@ main {
     position: fixed;
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Press Start 2P", system-ui;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.dot-1 {
+animation: dot-1-animate 0.5s ease-in-out infinite;
+}
+.dot-2 {
+animation: dot-2-animate 0.5s ease-in-out infinite;
+}
+.dot-3 {
+animation: dot-3-animate 0.5s ease-in-out infinite;
+}
+
+@keyframes dot-1-animate {
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+@keyframes dot-2-animate {
+    40% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+}
+@keyframes dot-3-animate {
+    60% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
 }
 
 .pokemon--card {
@@ -123,7 +166,7 @@ header {
     outline: none;
 }
 
-.coverPage{
+/* .coverPage{
     z-index: 10;
     position: relative;
     height: 100vh;
@@ -179,7 +222,7 @@ header {
     100% {
         right: -100%;
     }
-}
+} */
 
 /* footer{
     background-color: black;
