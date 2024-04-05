@@ -73,7 +73,7 @@ animation: dot-3-animate 0.5s ease-in-out infinite;
     grid-template-columns: repeat(auto-fit, 150px);
     gap: 16px;
     place-content: start;
-    padding: 80px 15px 50px 15px;
+    padding: 40px 15px;
 }
 .pokemon--card {
     border: 1px solid gray;
@@ -89,6 +89,8 @@ animation: dot-3-animate 0.5s ease-in-out infinite;
     transition: 0.2s;
     user-select: none;
     gap: 5px;
+    text-decoration: none;
+    color: black;
 }
 .pokemon--card:hover {
     background-color: rgb(37, 37, 37);
@@ -184,6 +186,10 @@ header {
         left: 80%;
         top: 50%;
         transform: translate(-50%, -50%);
+    }
+
+    .pokemon--cards-wrapper {
+        height: 85%;
     }
 
     .search--wrapper, #filter--pkmn {
