@@ -7,8 +7,6 @@ function MainPage() {
     const [AllPokemon, setAllPokemon] = useState(null)
     const [filter, setFilter] = useState('asc-num')
     const [searchInput, setSearchInput] = useState('')
-    // const [isCoverPageVisible, setCoverPageVisible] = useState(true)
-    // const [animationTimeouts, setAnimationTimeouts] = useState([])
 
     useEffect(() => {
         async function fetchAllPkmn() {
@@ -30,27 +28,6 @@ function MainPage() {
     const handleSearch = (search) => {
         setSearchInput(search)
     }
-
-    // const animateOpen = () => {
-    //     const bars = document.querySelectorAll('.coverPageBar');
-    //     const timeouts = [];
-
-    //     bars.forEach((bar, index) => {
-    //         const timeoutId = setTimeout(() => {
-    //             bar.classList.add('remove-coverPage-animation');
-    //         }, index * 200); // 0.5-second interval between each bar
-    //         timeouts.push(timeoutId);
-    //     });
-
-    //     // Hide cover page after animation
-    //     const hideTimeoutId = setTimeout(() => {
-    //         setCoverPageVisible(false);
-    //     }, 2000);
-
-    //     setAnimationTimeouts([...timeouts, hideTimeoutId]);
-    // };
-
-    // console.log(searchInput)
 
     return (
         <main>

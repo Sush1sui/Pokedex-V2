@@ -53,7 +53,7 @@ export default function PokemonList(props) {
     }, [props.searchInput, pokemonData, props.filter]);
 
     if (isLoading) {
-        return <div className='loading-view'>Loading<span className='dot-1'>.</span><span className='dot-2'>.</span><span className='dot-3'>.</span></div>; // Render loading screen
+        return <div className='loading-view'>Loading<span className='dot-1'>.</span><span className='dot-2'>.</span><span className='dot-3'>.</span></div>;
     }
 
     return (
