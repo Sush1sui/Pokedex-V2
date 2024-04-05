@@ -68,17 +68,10 @@ function MainPage() {
                     onSearch={handleSearch}
                     searchInput={searchInput}
             />
-            {
-                AllPokemon !== null? 
-                <PokemonList allPkmn={AllPokemon}
-                            filter={filter} 
-                            searchInput={searchInput}
-                /> 
-                : 
-                <div className='loading-view'><h1>Loading...</h1></div>        
-            }
-
-            
+            <PokemonList allPkmn={AllPokemon}
+                        filter={filter} 
+                        searchInput={searchInput}
+            />
         </main>
     )
 }

@@ -4,6 +4,7 @@ import PokemonCard from './PokemonCard';
 export default function PokemonList(props) {
     const [pokemonData, setPokemonData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchDataForAllPokemon = async () => {
@@ -15,6 +16,7 @@ export default function PokemonList(props) {
                     })
                 );
                 setPokemonData(newData);
+                setIsLoading(false); // Data fetching is complete
             } catch (error) {
                 console.error(error);
             }
@@ -46,21 +48,14 @@ export default function PokemonList(props) {
                     break;
             }
             
-            // if(props.filter === 'asc-num') {
-            //     filtered = [...filtered].sort((a, b) => a.id - b.id)
-            // } else if (props.filter === 'desc-num') {
-            //     filtered = [...filtered].sort((a, b) => b.id - a.id)
-            // } else if (props.filter === 'asc-name') {
-            //     filtered = [...filtered].sort((a, b) => a.name.localeCompare(b.name))
-            // } else if (props.filter === 'desc-name') {
-            //     filtered = [...filtered].sort((a, b) => b.name.localeCompare(a.name))
-            // }
             setFilteredData(filtered);
         }
     }, [props.searchInput, pokemonData, props.filter]);
 
-    console.log(filteredData)
-    
+    if (isLoading) {
+        return <div className='loading-view'>Loading...</div>; // Render loading screen
+    }
+
     return (
         <section className='pokemon--cards-wrapper'>
             {

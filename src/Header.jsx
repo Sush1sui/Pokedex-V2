@@ -25,7 +25,7 @@ export default function Header(props) {
                         value={props.searchInput}
                 />
             </div>
-
+            
             <h1 className="header--title">POKEDEX</h1>
 
             <select name="filter--pkmn" id="filter--pkmn" onChange={handleFilterChange} >
