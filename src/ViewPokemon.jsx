@@ -213,7 +213,7 @@ export default function ViewPokemon(props) {
                     
                     <div className="evolution--wrapper">
                         <u><h1>Evolution Chart</h1></u>
-
+                        <div>TBA</div>
                     </div>
 
                     <div className="base--stats-wrapper">
