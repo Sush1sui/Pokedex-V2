@@ -8,6 +8,7 @@ export default function ViewPokemon(props) {
     const [pokemonData, setPokemonData] = useState(null);
     const [pokemonId, setPokemonId] = useState(props.viewPokemonData.id);
     const [isImageLoading, setIsImageLoading] = useState(true)
+    const [evolutionChart, setEvolutionChart] = useState(null)
 
     useEffect(() => {
         const fetchPokemonData = async () => {
@@ -35,6 +36,27 @@ export default function ViewPokemon(props) {
 
         fetchPkmnSpeciesData();
     }, [pokemonId]);
+
+    useEffect(()=> {
+        if (!pokemonSpeciesData) return;
+
+        setEvolutionChart(null);
+        const fetchEvolutionChart = async() => {
+            try {
+                const res = await fetch(pokemonSpeciesData.evolution_chain.url)
+                const data = await res.json()
+
+                setEvolutionChart(data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        fetchEvolutionChart()
+    }, [pokemonSpeciesData])
+
+    if (evolutionChart && evolutionChart.chain) {
+        console.log(evolutionChart.chain);
+    }
 
     function handleImageLoad() {
         setIsImageLoading(false)
@@ -70,16 +92,23 @@ export default function ViewPokemon(props) {
         );
     }
 
+    const goLeft = ()=> {
+        setPokemonId(prev => prev - 1)
+    }
+    const goRight = ()=> {
+        setPokemonId(prev => prev + 1)
+    }
+
     return(
         <div className="view--pokemon-wrapper">
             <div className="arrow-wrapper">
                 {pokemonData.id !== 1 && (
-                    <button className="arrows arr-left" onClick={() => setPokemonId(prev => prev - 1)}>
+                    <button className="arrows arr-left" onClick={goLeft}>
                         <img src={arrowLeft} alt="Left arrow" />
                     </button>
                 )}
                 {pokemonData.id !== 721 && (
-                    <button className="arrows arr-right" onClick={() => setPokemonId(prev => prev + 1)}>
+                    <button className="arrows arr-right" onClick={goRight}>
                         <img src={arrowRight} alt="Right arrow" />
                     </button>
                 )}
@@ -152,12 +181,41 @@ export default function ViewPokemon(props) {
                                     }
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <b>EV yield</b>
+                                </td>
+                                <td>
+                                    {<div className="ev-yield">
+                                            {pokemonData.stats.map((stat, index) => (
+                                                <div key={index}>
+                                                    {stat.effort > 0 && 
+                                                        `${stat.effort} 
+                                                        ${
+                                                            stat.stat.name==='hp' ? 'HP':
+                                                            stat.stat.name==='attack' ? 'ATK':
+                                                            stat.stat.name==='defense' ? 'DEF':
+                                                            stat.stat.name==='special-attack' ? 'SP. ATK' :
+                                                            stat.stat.name==='special-defense' ? 'SP. DEF' :
+                                                            stat.stat.name==='speed' ? 'SPEED' : ''
+                                                        }`}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </section>
 
                 <section className="right--view-pokemon">
                     
+                    <div className="evolution--wrapper">
+                        <u><h1>Evolution Chart</h1></u>
+
+                    </div>
+
                     <div className="base--stats-wrapper">
                         <u><h1>Base Stats</h1></u>
                         <section className="base--stats">
@@ -173,10 +231,9 @@ export default function ViewPokemon(props) {
                                 }`}
 
                                 style={{
-                                    width: `${pokemonData.stats[0].base_stat*0.15}%`
+                                    width: `${pokemonData.stats[0].base_stat*0.2}%`
                                 }}></div>
                             </div>
-
                             <div className="atk stat-wrapper">
                                 <h4>ATK</h4>
                                 <p><b>{pokemonData.stats[1].base_stat}</b></p>
@@ -189,10 +246,9 @@ export default function ViewPokemon(props) {
                                 }`}
 
                                 style={{
-                                    width: `${pokemonData.stats[1].base_stat*0.15}%`
+                                    width: `${pokemonData.stats[1].base_stat*0.2}%`
                                 }}></div>
                             </div>
-
                             <div className="def stat-wrapper">
                                 <h4>DEF</h4>
                                 <p><b>{pokemonData.stats[2].base_stat}</b></p>
@@ -205,10 +261,9 @@ export default function ViewPokemon(props) {
                                 }`}
 
                                 style={{
-                                    width: `${pokemonData.stats[2].base_stat*0.15}%`
+                                    width: `${pokemonData.stats[2].base_stat*0.2}%`
                                 }}></div>
                             </div>
-
                             <div className="sp-atk stat-wrapper">
                                 <h4>Sp. Atk</h4>
                                 <p><b>{pokemonData.stats[3].base_stat}</b></p>
@@ -221,10 +276,9 @@ export default function ViewPokemon(props) {
                                 }`}
 
                                 style={{
-                                    width: `${pokemonData.stats[3].base_stat*0.15}%`
+                                    width: `${pokemonData.stats[3].base_stat*0.2}%`
                                 }}></div>
                             </div>
-
                             <div className="sp-def stat-wrapper">
                                 <h4>Sp. Def</h4>
                                 <p><b>{pokemonData.stats[4].base_stat}</b></p>
@@ -237,10 +291,9 @@ export default function ViewPokemon(props) {
                                 }`}
 
                                 style={{
-                                    width: `${pokemonData.stats[4].base_stat*0.15}%`
+                                    width: `${pokemonData.stats[4].base_stat*0.2}%`
                                 }}></div>
                             </div>
-
                             <div className="speed stat-wrapper">
                                 <h4>SPEED</h4>
                                 <p><b>{pokemonData.stats[5].base_stat}</b></p>
@@ -253,7 +306,7 @@ export default function ViewPokemon(props) {
                                 }`} 
                                 
                                 style={{
-                                    width: `${pokemonData.stats[5].base_stat*0.15}%`
+                                    width: `${pokemonData.stats[5].base_stat*0.2}%`
                                 }}></div>
                             </div>
                         </section>
