@@ -352,6 +352,7 @@ header {
     height: 15px;
     border-radius: 20px;
     align-self: center;
+    transition: 0.2s;
 }
 
 
