@@ -10,6 +10,7 @@ export default function ViewPokemon(props) {
 
     useEffect(() => {
         const fetchPokemonData = async () => {
+            setPokemonData(null)
             const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
             const data = await res.json();
             setPokemonData(data);
@@ -20,6 +21,7 @@ export default function ViewPokemon(props) {
 
     useEffect(() => {
         const fetchPkmnSpeciesData = async () => {
+            setPokemonSpeciesData(null)
             try {
                 const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
                 const data = await res.json();
