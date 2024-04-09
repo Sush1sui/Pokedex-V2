@@ -241,9 +241,6 @@ header {
 .cry--btn:active {
     background-color: rgba(255, 255, 255, 0.582);
 }
-.multiple-val-td div:first-child {
-    margin-bottom: 5px;
-}
 
 
 
@@ -255,12 +252,16 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5px;
 }
 .pkmn-type div {
     border-radius: 20px;
-    width: 50%;
-    padding: 5px 20px;
-    font-size: 80%;
+    width: 30%;
+    padding: 3px 30px;
+    font-size: 70%;
+    display: grid;
+    place-content: center;
+    font-weight: bold;
 }
 .pkmn-grass-type {
     background-color: #058F0B;

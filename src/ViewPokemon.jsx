@@ -11,7 +11,7 @@ export default function ViewPokemon(props) {
     function playCry() {
         const audio = new Audio();
         audio.src = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonData.id}.ogg`;
-        audio.volume = 0.3;
+        audio.volume = 0.1;
         
         isAudioPlaying ? audio.pause() : audio.play()
 
@@ -45,9 +45,9 @@ export default function ViewPokemon(props) {
                                 {
                                     <div className="pkmn-type">
                                         {pokemonData.types.map((pkmnType, index) => (
-                                        <div className={`pkmn-${pkmnType.type.name}-type`}>
-                                            {pkmnType.type.name.toUpperCase()}
-                                        </div>
+                                            <div className={`pkmn-${pkmnType.type.name}-type`}>
+                                                {pkmnType.type.name.toUpperCase()}
+                                            </div>
                                         ))}
                                     </div>
                                 }
