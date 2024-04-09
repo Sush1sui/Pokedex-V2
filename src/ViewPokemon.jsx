@@ -95,7 +95,8 @@ export default function ViewPokemon(props) {
                     <table className="table--left">
                         <thead>
                             <tr className="table--title">
-                                <td colSpan={2}><h1>{capitalizeFirstName(pokemonData.name)}</h1></td>
+                                <td><h1>No. {pokemonData.id}</h1></td>
+                                <td><h1>{capitalizeFirstName(pokemonData.name)}</h1></td>
                             </tr>
                         </thead>
                         <tbody>
@@ -150,6 +151,409 @@ export default function ViewPokemon(props) {
 
                 <section className="right--view-pokemon">
                     
+                    <div className="base--stats-wrapper">
+                        <u><h1>Base Stats</h1></u>
+                        <section className="base--stats">
+                            <div className="hp stat-wrapper">
+                                <h4>HP</h4>
+                                <p><b>{pokemonData.stats[0].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[0].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[0].base_stat >= 30 && pokemonData.stats[0].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[0].base_stat >= 50 && pokemonData.stats[0].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[0].base_stat >= 90 && pokemonData.stats[0].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[0].base_stat >= 120 && pokemonData.stats[0].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[0].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="atk stat-wrapper">
+                                <h4>ATK</h4>
+                                <p><b>{pokemonData.stats[1].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[1].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[1].base_stat >= 30 && pokemonData.stats[1].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[1].base_stat >= 50 && pokemonData.stats[1].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[1].base_stat >= 90 && pokemonData.stats[1].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[1].base_stat >= 120 && pokemonData.stats[1].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[1].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="def stat-wrapper">
+                                <h4>DEF</h4>
+                                <p><b>{pokemonData.stats[2].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[2].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[2].base_stat >= 30 && pokemonData.stats[2].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[2].base_stat >= 50 && pokemonData.stats[2].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[2].base_stat >= 90 && pokemonData.stats[2].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[2].base_stat >= 120 && pokemonData.stats[2].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[2].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="sp-atk stat-wrapper">
+                                <h4>Sp. Atk</h4>
+                                <p><b>{pokemonData.stats[3].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[3].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[3].base_stat >= 30 && pokemonData.stats[3].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[3].base_stat >= 50 && pokemonData.stats[3].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[3].base_stat >= 90 && pokemonData.stats[3].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[3].base_stat >= 120 && pokemonData.stats[3].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[3].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="sp-def stat-wrapper">
+                                <h4>Sp. Def</h4>
+                                <p><b>{pokemonData.stats[4].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[4].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[4].base_stat >= 30 && pokemonData.stats[4].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[4].base_stat >= 50 && pokemonData.stats[4].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[4].base_stat >= 90 && pokemonData.stats[4].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[4].base_stat >= 120 && pokemonData.stats[4].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[4].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="speed stat-wrapper">
+                                <h4>SPEED</h4>
+                                <p><b>{pokemonData.stats[5].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[5].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[5].base_stat >= 30 && pokemonData.stats[5].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[5].base_stat >= 50 && pokemonData.stats[5].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[5].base_stat >= 90 && pokemonData.stats[5].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[5].base_stat >= 120 && pokemonData.stats[5].base_stat < 150 ? 'high' : 'sup-high'
+                                }`} 
+                                
+                                style={{
+                                    width: `${pokemonData.stats[5].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="base--stats-wrapper">
+                        <u><h1>Base Stats</h1></u>
+                        <section className="base--stats">
+                            <div className="hp stat-wrapper">
+                                <h4>HP</h4>
+                                <p><b>{pokemonData.stats[0].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[0].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[0].base_stat >= 30 && pokemonData.stats[0].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[0].base_stat >= 50 && pokemonData.stats[0].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[0].base_stat >= 90 && pokemonData.stats[0].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[0].base_stat >= 120 && pokemonData.stats[0].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[0].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="atk stat-wrapper">
+                                <h4>ATK</h4>
+                                <p><b>{pokemonData.stats[1].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[1].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[1].base_stat >= 30 && pokemonData.stats[1].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[1].base_stat >= 50 && pokemonData.stats[1].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[1].base_stat >= 90 && pokemonData.stats[1].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[1].base_stat >= 120 && pokemonData.stats[1].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[1].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="def stat-wrapper">
+                                <h4>DEF</h4>
+                                <p><b>{pokemonData.stats[2].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[2].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[2].base_stat >= 30 && pokemonData.stats[2].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[2].base_stat >= 50 && pokemonData.stats[2].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[2].base_stat >= 90 && pokemonData.stats[2].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[2].base_stat >= 120 && pokemonData.stats[2].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[2].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="sp-atk stat-wrapper">
+                                <h4>Sp. Atk</h4>
+                                <p><b>{pokemonData.stats[3].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[3].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[3].base_stat >= 30 && pokemonData.stats[3].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[3].base_stat >= 50 && pokemonData.stats[3].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[3].base_stat >= 90 && pokemonData.stats[3].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[3].base_stat >= 120 && pokemonData.stats[3].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[3].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="sp-def stat-wrapper">
+                                <h4>Sp. Def</h4>
+                                <p><b>{pokemonData.stats[4].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[4].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[4].base_stat >= 30 && pokemonData.stats[4].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[4].base_stat >= 50 && pokemonData.stats[4].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[4].base_stat >= 90 && pokemonData.stats[4].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[4].base_stat >= 120 && pokemonData.stats[4].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[4].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="speed stat-wrapper">
+                                <h4>SPEED</h4>
+                                <p><b>{pokemonData.stats[5].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[5].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[5].base_stat >= 30 && pokemonData.stats[5].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[5].base_stat >= 50 && pokemonData.stats[5].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[5].base_stat >= 90 && pokemonData.stats[5].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[5].base_stat >= 120 && pokemonData.stats[5].base_stat < 150 ? 'high' : 'sup-high'
+                                }`} 
+                                
+                                style={{
+                                    width: `${pokemonData.stats[5].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="base--stats-wrapper">
+                        <u><h1>Base Stats</h1></u>
+                        <section className="base--stats">
+                            <div className="hp stat-wrapper">
+                                <h4>HP</h4>
+                                <p><b>{pokemonData.stats[0].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[0].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[0].base_stat >= 30 && pokemonData.stats[0].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[0].base_stat >= 50 && pokemonData.stats[0].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[0].base_stat >= 90 && pokemonData.stats[0].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[0].base_stat >= 120 && pokemonData.stats[0].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[0].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="atk stat-wrapper">
+                                <h4>ATK</h4>
+                                <p><b>{pokemonData.stats[1].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[1].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[1].base_stat >= 30 && pokemonData.stats[1].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[1].base_stat >= 50 && pokemonData.stats[1].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[1].base_stat >= 90 && pokemonData.stats[1].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[1].base_stat >= 120 && pokemonData.stats[1].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[1].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="def stat-wrapper">
+                                <h4>DEF</h4>
+                                <p><b>{pokemonData.stats[2].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[2].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[2].base_stat >= 30 && pokemonData.stats[2].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[2].base_stat >= 50 && pokemonData.stats[2].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[2].base_stat >= 90 && pokemonData.stats[2].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[2].base_stat >= 120 && pokemonData.stats[2].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[2].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="sp-atk stat-wrapper">
+                                <h4>Sp. Atk</h4>
+                                <p><b>{pokemonData.stats[3].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[3].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[3].base_stat >= 30 && pokemonData.stats[3].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[3].base_stat >= 50 && pokemonData.stats[3].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[3].base_stat >= 90 && pokemonData.stats[3].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[3].base_stat >= 120 && pokemonData.stats[3].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[3].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="sp-def stat-wrapper">
+                                <h4>Sp. Def</h4>
+                                <p><b>{pokemonData.stats[4].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[4].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[4].base_stat >= 30 && pokemonData.stats[4].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[4].base_stat >= 50 && pokemonData.stats[4].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[4].base_stat >= 90 && pokemonData.stats[4].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[4].base_stat >= 120 && pokemonData.stats[4].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[4].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="speed stat-wrapper">
+                                <h4>SPEED</h4>
+                                <p><b>{pokemonData.stats[5].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[5].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[5].base_stat >= 30 && pokemonData.stats[5].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[5].base_stat >= 50 && pokemonData.stats[5].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[5].base_stat >= 90 && pokemonData.stats[5].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[5].base_stat >= 120 && pokemonData.stats[5].base_stat < 150 ? 'high' : 'sup-high'
+                                }`} 
+                                
+                                style={{
+                                    width: `${pokemonData.stats[5].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="base--stats-wrapper">
+                        <u><h1>Base Stats</h1></u>
+                        <section className="base--stats">
+                            <div className="hp stat-wrapper">
+                                <h4>HP</h4>
+                                <p><b>{pokemonData.stats[0].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[0].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[0].base_stat >= 30 && pokemonData.stats[0].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[0].base_stat >= 50 && pokemonData.stats[0].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[0].base_stat >= 90 && pokemonData.stats[0].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[0].base_stat >= 120 && pokemonData.stats[0].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[0].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="atk stat-wrapper">
+                                <h4>ATK</h4>
+                                <p><b>{pokemonData.stats[1].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[1].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[1].base_stat >= 30 && pokemonData.stats[1].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[1].base_stat >= 50 && pokemonData.stats[1].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[1].base_stat >= 90 && pokemonData.stats[1].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[1].base_stat >= 120 && pokemonData.stats[1].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[1].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="def stat-wrapper">
+                                <h4>DEF</h4>
+                                <p><b>{pokemonData.stats[2].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[2].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[2].base_stat >= 30 && pokemonData.stats[2].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[2].base_stat >= 50 && pokemonData.stats[2].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[2].base_stat >= 90 && pokemonData.stats[2].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[2].base_stat >= 120 && pokemonData.stats[2].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[2].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="sp-atk stat-wrapper">
+                                <h4>Sp. Atk</h4>
+                                <p><b>{pokemonData.stats[3].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[3].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[3].base_stat >= 30 && pokemonData.stats[3].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[3].base_stat >= 50 && pokemonData.stats[3].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[3].base_stat >= 90 && pokemonData.stats[3].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[3].base_stat >= 120 && pokemonData.stats[3].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[3].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="sp-def stat-wrapper">
+                                <h4>Sp. Def</h4>
+                                <p><b>{pokemonData.stats[4].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[4].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[4].base_stat >= 30 && pokemonData.stats[4].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[4].base_stat >= 50 && pokemonData.stats[4].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[4].base_stat >= 90 && pokemonData.stats[4].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[4].base_stat >= 120 && pokemonData.stats[4].base_stat < 150 ? 'high' : 'sup-high'
+                                }`}
+
+                                style={{
+                                    width: `${pokemonData.stats[4].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+
+                            <div className="speed stat-wrapper">
+                                <h4>SPEED</h4>
+                                <p><b>{pokemonData.stats[5].base_stat}</b></p>
+                                <div className={`bar ${
+                                    pokemonData.stats[5].base_stat < 30 ? 'low' :
+                                    pokemonData.stats[5].base_stat >= 30 && pokemonData.stats[5].base_stat < 50 ? 'med-low' :
+                                    pokemonData.stats[5].base_stat >= 50 && pokemonData.stats[5].base_stat < 90 ? 'med' :
+                                    pokemonData.stats[5].base_stat >= 90 && pokemonData.stats[5].base_stat < 120 ? 'med-high' :
+                                    pokemonData.stats[5].base_stat >= 120 && pokemonData.stats[5].base_stat < 150 ? 'high' : 'sup-high'
+                                }`} 
+                                
+                                style={{
+                                    width: `${pokemonData.stats[5].base_stat*0.15}%`
+                                }}></div>
+                            </div>
+                        </section>
+                    </div>
                 </section>
             </section>
         </div>
