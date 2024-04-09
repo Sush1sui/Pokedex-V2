@@ -26,9 +26,12 @@ export default function Header(props) {
                 />
             </div>}
             
-            <a className="header--title" href="/">
+            {!props.view ? <a className="header--title" href="/">
                 <h1>POKEDEX</h1>
-            </a>
+            </a> :  <a className="header--title" href="/">
+                        <h1>BACK</h1>
+                    </a>
+            }
 
             {!props.view && <select name="filter--pkmn" id="filter--pkmn" onChange={handleFilterChange} >
                 <option value="asc-num">Number - Ascending</option>
