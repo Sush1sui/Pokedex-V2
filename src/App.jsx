@@ -45,6 +45,7 @@ function MainPage() {
             <Header onFilterChange={handleFilterChange}
                     onSearch={handleSearch}
                     searchInput={searchInput}
+                    view={viewPokemon}
             />
             {
                 viewPokemon ?

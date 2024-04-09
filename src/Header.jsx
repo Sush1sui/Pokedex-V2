@@ -16,7 +16,7 @@ export default function Header(props) {
     return(
         <header className="">
 
-            <div className="search--wrapper">
+            {!props.view && <div className="search--wrapper">
                 <img src={searchIcon} />
                 <input type="text"
                         placeholder="Search Pokemon"
@@ -24,18 +24,18 @@ export default function Header(props) {
                         onChange={handleSearch}
                         value={props.searchInput}
                 />
-            </div>
+            </div>}
             
             <a className="header--title" href="/">
                 <h1>POKEDEX</h1>
             </a>
 
-            <select name="filter--pkmn" id="filter--pkmn" onChange={handleFilterChange} >
+            {!props.view && <select name="filter--pkmn" id="filter--pkmn" onChange={handleFilterChange} >
                 <option value="asc-num">Number - Ascending</option>
                 <option value="desc-num">Number - Descending</option>
                 <option value="asc-name">Name - Ascending</option>
                 <option value="desc-name">Name - Descending</option>
-            </select>
+            </select>}
 
         </header>
     )

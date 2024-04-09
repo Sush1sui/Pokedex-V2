@@ -182,6 +182,7 @@ header {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: scroll;
 }
 
 .deets {
@@ -203,6 +204,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 .view--img {
     width: 55%;
@@ -291,6 +293,8 @@ header {
 }
 
 
+
+
 /*-------- POKEMON TYPE STYLES --------*/
 .pkmn-type {
     width: 100%;
@@ -365,6 +369,10 @@ header {
 .pkmn-psychic-type {
     background-color: magenta;
     border: 2px solid purple;
+}
+.pkmn-fairy-type {
+    background-color: violet;
+    border: 2px solid rgb(197, 90, 197);
 }
 .pkmn-rock-type {
     background-color: rgb(150, 101, 101);

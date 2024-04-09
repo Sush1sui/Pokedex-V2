@@ -7,10 +7,6 @@ export default function PokemonCard(props) {
         return name.charAt(0).toUpperCase() + name.slice(1)
     }
 
-    function addClick() {
-        
-    }
-
     function handleImageLoad() {
         setIsLoading(false)
     }

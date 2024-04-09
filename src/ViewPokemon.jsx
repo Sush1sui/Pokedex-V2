@@ -26,6 +26,7 @@ export default function ViewPokemon(props) {
             try {
                 const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
                 const data = await res.json();
+                
                 setPokemonSpeciesData(data);
             } catch (error) {
                 console.error(error);
@@ -86,7 +87,11 @@ export default function ViewPokemon(props) {
                             <span className='dot-2'>.</span>
                             <span className='dot-3'>.</span>
                             </div>}
-                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`} alt={`${pokemonData.name} photo`} className="view--img" onLoad={handleImageLoad} />
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`} 
+                        alt={`${pokemonData.name} photo`} 
+                        className="view--img" 
+                        onLoad={handleImageLoad} 
+                    />
                     <table className="table--left">
                         <thead>
                             <tr className="table--title">
@@ -144,7 +149,7 @@ export default function ViewPokemon(props) {
                 </section>
 
                 <section className="right--view-pokemon">
-
+                    
                 </section>
             </section>
         </div>
