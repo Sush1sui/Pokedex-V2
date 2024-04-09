@@ -14,7 +14,7 @@ function MainPage() {
     useEffect(() => {
         async function fetchAllPkmn() {
             try {
-                const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=649&offset=0')
+                const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=721&offset=0')
                 const data = await res.json()
                 setAllPokemon(data.results)         
             } catch (error) {

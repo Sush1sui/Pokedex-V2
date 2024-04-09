@@ -256,7 +256,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px;
     width: 100%;
 }
 .arrows {
@@ -264,6 +263,17 @@ header {
     background-color: transparent;
     cursor: pointer;
     width: 50px;
+    padding: 5px;
+}
+.arr-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.arr-right {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .arrows img {
     width: 100%;

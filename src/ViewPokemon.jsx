@@ -3,60 +3,73 @@ import arrowLeft from '/arrow-left.png'
 import arrowRight from '/arrow-right.png'
 
 export default function ViewPokemon(props) {
-    const [isAudioPlaying, setIsAudioPlaying] = useState(false)
-    const [pokemonSpeciesData, setPokemonSpeciesData] = useState(null)
-    const pokemonData = props.viewPokemonData
+    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+    const [pokemonSpeciesData, setPokemonSpeciesData] = useState(null);
+    const [pokemonData, setPokemonData] = useState(null);
+    const [pokemonId, setPokemonId] = useState(props.viewPokemonData.id);
+
+    useEffect(() => {
+        const fetchPokemonData = async () => {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+            const data = await res.json();
+            setPokemonData(data);
+        };
+
+        fetchPokemonData();
+    }, [pokemonId]);
+
+    useEffect(() => {
+        const fetchPkmnSpeciesData = async () => {
+            try {
+                const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
+                const data = await res.json();
+                setPokemonSpeciesData(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchPkmnSpeciesData();
+    }, [pokemonId]);
 
     function capitalizeFirstName(name) {
-        return name.charAt(0).toUpperCase() + name.slice(1)
+        return name.charAt(0).toUpperCase() + name.slice(1);
     }
 
     function playCry() {
         const audio = new Audio();
         audio.src = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonData.id}.ogg`;
         audio.volume = 0.1;
-        
-        isAudioPlaying ? audio.pause() : audio.play()
 
+        isAudioPlaying ? audio.pause() : audio.play();
         setIsAudioPlaying(!isAudioPlaying);
     }
 
-    useEffect(()=> {
-        const fetchPkmnSpeciesData = async() => {
-            try {
-                const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonData.id}`)
-                const data = await res.json()
-
-                setPokemonSpeciesData(data)
-            } catch (error) {
-                console.error(error)
-            }
-        }
-
-        fetchPkmnSpeciesData()
-    }, [])
-
-    console.log(pokemonSpeciesData)
-
-    if(!pokemonSpeciesData) {
-        return <div className='loading-view'>Loading
-                        <span className='dot-1'>.</span>
-                        <span className='dot-2'>.</span>
-                        <span className='dot-3'>.</span>
-                </div>;
+    if (!pokemonSpeciesData || !pokemonData) {
+        return (
+            <div className='loading-view'>Loading
+                <span className='dot-1'>.</span>
+                <span className='dot-2'>.</span>
+                <span className='dot-3'>.</span>
+            </div>
+        );
     }
 
     return(
         <div className="view--pokemon-wrapper">
             <div className="arrow-wrapper">
-                <button className="arrows">
-                    <img src={arrowLeft} />
-                </button>
-                
-                <button className="arrows">
-                    <img src={arrowRight} />
-                </button>
+                {pokemonData.id !== 1 && (
+                    <button className="arrows arr-left" onClick={() => setPokemonId(prev => prev - 1)}>
+                        <img src={arrowLeft} alt="Left arrow" />
+                    </button>
+                )}
+                {pokemonData.id !== 721 && (
+                    <button className="arrows arr-right" onClick={() => setPokemonId(prev => prev + 1)}>
+                        <img src={arrowRight} alt="Right arrow" />
+                    </button>
+                )}
             </div>
+
 
             <section className="deets">
                 
@@ -108,7 +121,7 @@ export default function ViewPokemon(props) {
                                         <div className="egg-groups">
                                             {pokemonSpeciesData.egg_groups.map((eggGroup, index) => (
                                                 <div key={index}>
-                                                    {capitalizeFirstName(eggGroup.name)}
+                                                    {capitalizeFirstName(eggGroup.name).replace(/-/g, " ")}
                                                 </div>
                                             ))}
                                         </div>
