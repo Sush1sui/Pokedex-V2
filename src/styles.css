@@ -18,7 +18,7 @@ main {
     position: fixed;
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
-    font-size: xx-large;
+    font-size: medium;
     text-align: center;
     font-weight: bold;
     font-family: "Press Start 2P", system-ui;
