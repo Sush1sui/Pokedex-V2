@@ -117,7 +117,7 @@ export default function ViewPokemon(props) {
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${species.url.split('/').slice(-2, -1)}.png`}
                     alt={`${capitalizeFirstName(species.name)} sprite`}
                 />
-                <div><b>{capitalizeFirstName(species.name)}</b></div>
+                <h4>{capitalizeFirstName(species.name)}</h4>
             </div>
         );
     
