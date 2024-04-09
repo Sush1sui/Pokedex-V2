@@ -213,7 +213,7 @@ header {
 
 .right--view-pokemon {
     border-radius: 20px;
-    width: 65%;
+    width: 60%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.493);
     display: flex;
     flex-direction: column;
