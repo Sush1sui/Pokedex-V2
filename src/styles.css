@@ -225,7 +225,41 @@ header {
 
 .evolution--wrapper {
     width: 100%;
-    border: 3px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+}
+.evolution--pokemon {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.evolution--stage {
+    align-self: center;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 100%;
+}
+.evolution--stage:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.493);
+}
+.evolution--stage img {
+    width: 90%;
+    transition: 0.2s;
+}
+.evolution--stage:hover img{
+    width: 100%;
 }
 
 .left--view-pokemon {
@@ -373,7 +407,7 @@ header {
 .pkmn-type div {
     border-radius: 20px;
     width: 30%;
-    padding: 3px 30px;
+    padding: 3px 40px;
     font-size: 70%;
     display: grid;
     place-content: center;
@@ -500,7 +534,11 @@ header {
         height: 85%;
         gap: 50px;
     }
-    .arrow-wrapper {
+    .evolution--pokemon {
+        flex-direction: column;
+    }
+    .evolution--stage {
+        width: 90%;
     }
     .deets {
         flex-direction: column;

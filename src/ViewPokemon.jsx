@@ -54,6 +54,18 @@ export default function ViewPokemon(props) {
         fetchEvolutionChart()
     }, [pokemonSpeciesData])
 
+    async function handlePokemonDataRender (pokemonName) {
+        try {
+            setPokemonData(null);
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+            const data = await res.json();
+            setPokemonData(data);
+            setPokemonId(data.id)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     if (evolutionChart && evolutionChart.chain) {
         console.log(evolutionChart.chain);
     }
@@ -61,11 +73,9 @@ export default function ViewPokemon(props) {
     function handleImageLoad() {
         setIsImageLoading(false)
     }
-
     function capitalizeFirstName(name) {
         return name.charAt(0).toUpperCase() + name.slice(1);
     }
-
     function playCry() {
         const audio = new Audio();
         audio.src = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonData.id}.ogg`;
@@ -81,8 +91,7 @@ export default function ViewPokemon(props) {
         isAudioPlaying ? audio.pause() : audio.play();
         audio.addEventListener('ended', handleAudioEnded)
     }
-
-    if (!pokemonSpeciesData || !pokemonData) {
+    if (!pokemonSpeciesData || !pokemonData || !evolutionChart) {
         return (
             <div className='loading-view'>Farfetch'ding
                 <span className='dot-1'>.</span>
@@ -91,13 +100,35 @@ export default function ViewPokemon(props) {
             </div>
         );
     }
-
     const goLeft = ()=> {
         setPokemonId(prev => prev - 1)
     }
     const goRight = ()=> {
         setPokemonId(prev => prev + 1)
     }
+
+    const renderEvolutionChain = (chain) => {
+        const { species, evolves_to } = chain;
+        let evolutions = [];
+    
+        evolutions.push(
+            <div key={species.name} className="evolution--stage" onClick={() => handlePokemonDataRender(species.name)}>
+                <img
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${species.url.split('/').slice(-2, -1)}.png`}
+                    alt={`${capitalizeFirstName(species.name)} sprite`}
+                />
+                <div><b>{capitalizeFirstName(species.name)}</b></div>
+            </div>
+        );
+    
+        if (evolves_to && evolves_to.length > 0) {
+            evolves_to.forEach((evolution, index) => {
+                evolutions = evolutions.concat(renderEvolutionChain(evolution));
+            });
+        }
+    
+        return evolutions;
+    };    
 
     return(
         <div className="view--pokemon-wrapper">
@@ -113,7 +144,6 @@ export default function ViewPokemon(props) {
                     </button>
                 )}
             </div>
-
 
             <section className="deets">
                 
@@ -213,7 +243,11 @@ export default function ViewPokemon(props) {
                     
                     <div className="evolution--wrapper">
                         <u><h1>Evolution Chart</h1></u>
-                        <div>TBA</div>
+                        {evolutionChart && (
+                            <div className="evolution--pokemon">
+                                {renderEvolutionChain(evolutionChart.chain)}
+                            </div>
+                        )}
                     </div>
 
                     <div className="base--stats-wrapper">
