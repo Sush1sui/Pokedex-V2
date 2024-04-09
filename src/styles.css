@@ -185,11 +185,11 @@ header {
 
 .right--view-pokemon {
     border: 3px solid blue;
-    width: 75%;
+    width: 67%;
 }
 
 .left--view-pokemon {
-    width: 20%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -205,15 +205,16 @@ header {
 }
 .table--left td {
     padding: 10px;
+    font-size: 100%;
 }
 .table--left thead td {
     border: 3px solid white;
 }
 .table--left tbody td {
-    width: 50%;
     border: 3px solid white;
     background-color: rgb(36, 36, 36);
     color: white;
+
 }
 .table--left {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.493);
@@ -222,11 +223,8 @@ header {
     background-color: rgb(80, 80, 80);
     color: white;
 }
-.data-td {
-    text-align: left;
-}
 .cry--btn {
-    width: 50%;
+    width: 40%;
     padding: 5px 0;
     font-size: 80%;
     border-radius: 20px;
@@ -242,6 +240,95 @@ header {
 }
 .cry--btn:active {
     background-color: rgba(255, 255, 255, 0.582);
+}
+.multiple-val-td div:first-child {
+    margin-bottom: 5px;
+}
+
+
+
+
+/*-------- POKEMON TYPE STYLES --------*/
+.pkmn-type {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.pkmn-type div {
+    border-radius: 20px;
+    width: 50%;
+    padding: 5px 20px;
+    font-size: 80%;
+}
+.pkmn-grass-type {
+    background-color: #058F0B;
+    border: 2px solid #076A0B;
+}
+.pkmn-poison-type {
+    background-color: #9B599C;
+    border: 2px solid #783079;
+}
+.pkmn-bug-type {
+    background-color: darkolivegreen;
+    border: 2px solid darkgreen;
+}
+.pkmn-dark-type {
+    background-color: #3a3644;
+    border: 2px solid #000000;
+}
+.pkmn-dragon-type {
+    background-color: darkcyan;
+    border: 2px solid rgb(18, 92, 92);
+}
+.pkmn-electric-type {
+    background-color: gold;
+    border: 2px solid goldenrod;
+}
+.pkmn-fighting-type {
+    background-color: rgb(218, 58, 0);
+    border: 2px solid darkred;
+}
+.pkmn-fire-type {
+    background-color: crimson;
+    border: 2px solid darkred;
+}
+.pkmn-flying-type {
+    background-color: rgb(153, 194, 196);
+    border: 2px solid rgb(107, 136, 138);
+}
+.pkmn-ghost-type {
+    background-color: darkslateblue;
+    border: 2px solid rgb(44, 37, 87);
+}
+.pkmn-ground-type {
+    background-color: sandybrown;
+    border: 2px solid rgb(182, 116, 58);
+}
+.pkmn-ice-type {
+    background-color: rgb(144, 255, 255);
+    border: 2px solid darkcyan;
+}
+.pkmn-normal-type {
+    background-color: darksalmon;
+    border: 2px solid rgb(197, 117, 90);
+}
+.pkmn-psychic-type {
+    background-color: magenta;
+    border: 2px solid purple;
+}
+.pkmn-rock-type {
+    background-color: rgb(150, 101, 101);
+    border: 2px solid rgb(102, 64, 64);
+}
+.pkmn-steel-type {
+    background-color: rgb(151, 151, 151);
+    border: 2px solid rgb(90, 90, 90);
+}
+.pkmn-water-type {
+    background-color: cornflowerblue;
+    border: 2px solid rgb(62, 100, 170);
 }
 
 @media (max-width: 760px) {

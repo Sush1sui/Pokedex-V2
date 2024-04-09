@@ -9,13 +9,9 @@ export default function ViewPokemon(props) {
     }
 
     function playCry() {
-        const audio=new Audio();
-        audio.src=`https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonData.id}.ogg`
-    }
-
-    function playCry() {
         const audio = new Audio();
         audio.src = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonData.id}.ogg`;
+        audio.volume = 0.3;
         
         isAudioPlaying ? audio.pause() : audio.play()
 
@@ -36,17 +32,27 @@ export default function ViewPokemon(props) {
                     <tbody>
                         <tr>
                             <td>Abilities</td>
-                            <td className="data-td">{pokemonData.abilities.map((pkmnAbility, index) => (
-                                    <React.Fragment key={index}>
+                            <td className="multiple-val-td">
+                                {pokemonData.abilities.map((pkmnAbility, index) => (
+                                    <div>
                                         {capitalizeFirstName(pkmnAbility.ability.name).replace(/-/g, " ")}
-                                        {index < pokemonData.abilities.length - 1 && <br /> && <br />}
-                                    </React.Fragment>
+                                    </div>
                                 ))}
                             </td>
                         </tr>
                         <tr>
+                            <td className="multiple-val-td">
+                                {
+                                    <div className="pkmn-type">
+                                        {pokemonData.types.map((pkmnType, index) => (
+                                        <div className={`pkmn-${pkmnType.type.name}-type`}>
+                                            {pkmnType.type.name.toUpperCase()}
+                                        </div>
+                                        ))}
+                                    </div>
+                                }
+                            </td>
                             <td><button className="cry--btn" onClick={playCry}><b>Cry</b></button></td>
-                            <td></td>
                         </tr>
                     </tbody>
                 </table>
