@@ -129,8 +129,7 @@ export default function ViewPokemon(props) {
                             <tr>
                                 <td><b>Egg Group</b></td>
                                 <td>
-                                    {pokemonData && pokemonSpeciesData &&
-                                        <div className="egg-groups">
+                                    {<div className="egg-groups">
                                             {pokemonSpeciesData.egg_groups.map((eggGroup, index) => (
                                                 <div key={index}>
                                                     {capitalizeFirstName(eggGroup.name).replace(/-/g, " ")}
