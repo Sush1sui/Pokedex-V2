@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import arrowLeft from '/arrow-left.png'
 import arrowRight from '/arrow-right.png'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function ViewPokemon(props) {
     const [isAudioPlaying, setIsAudioPlaying] = useState(false);
