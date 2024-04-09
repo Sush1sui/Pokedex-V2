@@ -148,17 +148,16 @@ export default function ViewPokemon(props) {
             <section className="deets">
                 
                 <section className="left--view-pokemon">
-                    {isImageLoading ? (<div className='loading-view'>Farfetch'ding
+                    {isImageLoading && <div className='loading-view'>Farfetch'ding
                             <span className='dot-1'>.</span>
                             <span className='dot-2'>.</span>
                             <span className='dot-3'>.</span>
-                            </div>)
-                    : (<img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`} 
+                            </div>}
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`} 
                         alt={`${pokemonData.name} photo`} 
                         className="view--img" 
                         onLoad={handleImageLoad} 
-                    />)}
-                    
+                    />
                     <table className="table--left">
                         <thead>
                             <tr className="table--title">
