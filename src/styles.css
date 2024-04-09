@@ -180,12 +180,21 @@ header {
     border: 3px solid black;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.deets {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
     justify-content: space-evenly;
 }
 
 .right--view-pokemon {
     border: 3px solid blue;
-    width: 67%;
+    width: 65%;
 }
 
 .left--view-pokemon {
@@ -202,6 +211,7 @@ header {
     text-align: center;
     width: 100%;
     border-collapse: collapse;
+    cursor: default;
 }
 .table--left td {
     padding: 10px;
@@ -212,15 +222,14 @@ header {
 }
 .table--left tbody td {
     border: 3px solid white;
-    background-color: rgb(36, 36, 36);
     color: white;
-
+    background-color: rgb(76, 93, 112);
 }
 .table--left {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.493);
 }
 .table--title {
-    background-color: rgb(80, 80, 80);
+    background-color: #383442;
     color: white;
 }
 .cry--btn {
@@ -233,6 +242,7 @@ header {
     cursor: pointer;
     color: black;
     transition: 0.2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.493);
 }
 .cry--btn:hover {
     color: white;
@@ -242,7 +252,33 @@ header {
     background-color: rgba(255, 255, 255, 0.582);
 }
 
-
+.arrow-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    width: 100%;
+}
+.arrows {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 50px;
+}
+.arrows img {
+    width: 100%;
+}
+.arrows:hover {
+    opacity: 0.8;
+}
+.arrows:active {
+    filter: brightness(0.8);
+}
+.abilities, .egg-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
 
 /*-------- POKEMON TYPE STYLES --------*/
@@ -262,6 +298,7 @@ header {
     display: grid;
     place-content: center;
     font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.493);
 }
 .pkmn-grass-type {
     background-color: #058F0B;
@@ -354,7 +391,7 @@ header {
     .pokemon--cards-wrapper, .view--pokemon-wrapper {
         height: 85%;
     }
-    .view--pokemon-wrapper {
+    .deets {
         flex-direction: column;
     }
     .right--view-pokemon {
