@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './Header';
 import PokemonList from './PokemonList';
+import ViewPokemon from './ViewPokemon';
 
 function MainPage() {
     const [AllPokemon, setAllPokemon] = useState(null)
     const [filter, setFilter] = useState('asc-num')
     const [searchInput, setSearchInput] = useState('')
+    const [viewPokemon, setViewPokemon] = useState(false)
+    const [viewPokemonData, setViewPokemonData] = useState(null)
 
     useEffect(() => {
         async function fetchAllPkmn() {
@@ -29,16 +32,38 @@ function MainPage() {
         setSearchInput(search)
     }
 
+    const handleIsViewPokemon = (view) => {
+        setViewPokemon(view)
+    }
+
+    const handleViewPokemonData = (data) => {
+        setViewPokemonData(data)
+    }
+
     return (
         <main>
             <Header onFilterChange={handleFilterChange}
                     onSearch={handleSearch}
                     searchInput={searchInput}
             />
-            <PokemonList allPkmn={AllPokemon}
+            {
+                viewPokemon ?
+                <ViewPokemon 
+                    isViewPokemon={handleIsViewPokemon}
+                    view={viewPokemon}
+                    viewPokemonData={viewPokemonData}
+                    setViewPokemonData={handleViewPokemonData}
+                />
+                :
+                <PokemonList allPkmn={AllPokemon}
                         filter={filter} 
                         searchInput={searchInput}
-            />
+                        isViewPokemon={handleIsViewPokemon}
+                        view={viewPokemon}
+                        viewPokemonData={viewPokemonData}
+                        setViewPokemonData={handleViewPokemonData}
+                />
+            }
         </main>
     )
 }

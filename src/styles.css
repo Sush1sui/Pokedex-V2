@@ -152,10 +152,12 @@ header {
 }
 
 .header--title {
+    text-decoration: none;
+}
+.header--title h1 {
     font-family: "Press Start 2P", system-ui;
     color: white;
     font-size: 1rem;
-    cursor: default;
 }
 
 #filter--pkmn {
@@ -168,6 +170,78 @@ header {
     cursor: pointer;
     padding: 0 10px;
     outline: none;
+}
+
+.view--pokemon-wrapper {
+    position: absolute;
+    bottom: 0;
+    height: 90%;
+    width: 100%;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.right--view-pokemon {
+    border: 3px solid blue;
+    width: 75%;
+}
+
+.left--view-pokemon {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.view--img {
+    width: 55%;
+}
+.table--left {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+.table--left td {
+    padding: 10px;
+}
+.table--left thead td {
+    border: 3px solid white;
+}
+.table--left tbody td {
+    width: 50%;
+    border: 3px solid white;
+    background-color: rgb(36, 36, 36);
+    color: white;
+}
+.table--left {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.493);
+}
+.table--title {
+    background-color: rgb(80, 80, 80);
+    color: white;
+}
+.data-td {
+    text-align: left;
+}
+.cry--btn {
+    width: 50%;
+    padding: 5px 0;
+    font-size: 80%;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+    transition: 0.2s;
+}
+.cry--btn:hover {
+    color: white;
+    background-color: rgb(36, 36, 36);
+}
+.cry--btn:active {
+    background-color: rgba(255, 255, 255, 0.582);
 }
 
 @media (max-width: 760px) {
@@ -189,8 +263,21 @@ header {
         transform: translate(-50%, -50%);
     }
 
-    .pokemon--cards-wrapper {
+    .pokemon--cards-wrapper, .view--pokemon-wrapper {
         height: 85%;
+    }
+    .view--pokemon-wrapper {
+        flex-direction: column;
+    }
+    .right--view-pokemon {
+        width: 90%;
+    }
+    
+    .left--view-pokemon {
+        width: 90%;
+    }
+    .view--img {
+        width: 50%;
     }
 
     .search--wrapper, #filter--pkmn {

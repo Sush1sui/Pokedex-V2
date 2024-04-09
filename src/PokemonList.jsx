@@ -9,6 +9,7 @@ export default function PokemonList(props) {
     useEffect(() => {
         const fetchDataForAllPokemon = async () => {
             try {
+                if (!props.allPkmn) return;
                 const newData = await Promise.all(
                     props.allPkmn.map(async (pokemon) => {
                         const res = await fetch(pokemon.url);
@@ -53,16 +54,25 @@ export default function PokemonList(props) {
     }, [props.searchInput, pokemonData, props.filter]);
 
     if (isLoading) {
-        return <div className='loading-view'>Loading<span className='dot-1'>.</span><span className='dot-2'>.</span><span className='dot-3'>.</span></div>;
+        return <div className='loading-view'>Loading
+                        <span className='dot-1'>.</span>
+                        <span className='dot-2'>.</span>
+                        <span className='dot-3'>.</span>
+                </div>;
     }
-
+    
     return (
         <section className='pokemon--cards-wrapper'>
             {
                 filteredData.map((pokemon, index) => (
                     <PokemonCard 
                         key={index}
-                        {...pokemon} />
+                        {...pokemon} 
+                        isViewPokemon={props.isViewPokemon}
+                        view={props.view}
+                        viewPokemonData={props.viewPokemonData}
+                        setViewPokemonData={props.setViewPokemonData}
+                    />
                 ))
             }
         </section>

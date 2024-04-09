@@ -26,7 +26,9 @@ export default function Header(props) {
                 />
             </div>
             
-            <h1 className="header--title">POKEDEX</h1>
+            <a className="header--title" href="/">
+                <h1>POKEDEX</h1>
+            </a>
 
             <select name="filter--pkmn" id="filter--pkmn" onChange={handleFilterChange} >
                 <option value="asc-num">Number - Ascending</option>
