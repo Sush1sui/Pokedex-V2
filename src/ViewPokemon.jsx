@@ -7,6 +7,7 @@ export default function ViewPokemon(props) {
     const [pokemonSpeciesData, setPokemonSpeciesData] = useState(null);
     const [pokemonData, setPokemonData] = useState(null);
     const [pokemonId, setPokemonId] = useState(props.viewPokemonData.id);
+    const [isImageLoading, setIsImageLoading] = useState(true)
 
     useEffect(() => {
         const fetchPokemonData = async () => {
@@ -33,6 +34,10 @@ export default function ViewPokemon(props) {
 
         fetchPkmnSpeciesData();
     }, [pokemonId]);
+
+    function handleImageLoad() {
+        setIsLoading(false)
+    }
 
     function capitalizeFirstName(name) {
         return name.charAt(0).toUpperCase() + name.slice(1);
@@ -76,7 +81,12 @@ export default function ViewPokemon(props) {
             <section className="deets">
                 
                 <section className="left--view-pokemon">
-                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`} alt={`${pokemonData.name} photo`} className="view--img" />
+                    {isLoading && <div className='loading-view'>Farfetch'ding
+                            <span className='dot-1'>.</span>
+                            <span className='dot-2'>.</span>
+                            <span className='dot-3'>.</span>
+                            </div>}
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`} alt={`${pokemonData.name} photo`} className="view--img" onLoad={handleImageLoad} />
                     <table className="table--left">
                         <thead>
                             <tr className="table--title">
