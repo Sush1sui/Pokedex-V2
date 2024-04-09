@@ -10,7 +10,7 @@ export default function ViewPokemon(props) {
     const [pokemonId, setPokemonId] = useState(props.viewPokemonData.id);
     const [isImageLoading, setIsImageLoading] = useState(true)
     const [evolutionChart, setEvolutionChart] = useState(null)
-    // commit
+    
     useEffect(() => {
         const fetchPokemonData = async () => {
             setPokemonData(null)
