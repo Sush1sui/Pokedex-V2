@@ -49,7 +49,7 @@ export default function ViewPokemon(props) {
 
     if (!pokemonSpeciesData || !pokemonData) {
         return (
-            <div className='loading-view'>Loading
+            <div className='loading-view'>Farfetch'ding
                 <span className='dot-1'>.</span>
                 <span className='dot-2'>.</span>
                 <span className='dot-3'>.</span>
